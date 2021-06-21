@@ -5,9 +5,13 @@ Projeto realizado com TypeScript
 Primeiros passos:
 
 1- yarn init -y ou npm init -y
+
 2- yarn add ou npm install typescript -D
+
 3- yarn tsc --init
+
 4- Atribuir 'false' no "strict" do arquivo ts.config.
+
 5- Baixar as bibliotecas de tipagens necessárias. No caso, para utilização do express: 'yarn add @types/express -D'
 
 O código TypeScript precisa ser convertido para JavaScript para que o Node consiga interpreta-lo, para isso podemos seguir o passo 5 ou 8.
