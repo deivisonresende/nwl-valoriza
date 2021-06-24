@@ -28,13 +28,44 @@ node src/server.js
 
 10- No terminal, execute yarn start ou npm start. Daí o servidor será iniciado e será reiniciado automaticamente após uma alteração nos arquivos .ts
 
+**\* Organizar informações:**
+
+## Inicializar tsconfig.son e habilitar(descomentar) as opções abaixo:
+
+"strict": false,
+
+"strictPropertyInitialization": false,
+
+"esModuleInterop": true,
+
+"experimentalDecorators": true,
+
+"emitDecoratorMetadata": true,
+
+"skipLibCheck": true,
+
+"forceConsistentCasingInFileNames": true
+
+## Criar arquivo "ormconfig.son" abaixo:
+
+{
+"type": "sqlite",
+"database":"src/database/database.sqlite",
+"migrations":["src/database/migrations/*.ts"],
+"entities":["src/entities/*.ts"],
+"cli":{
+"migrationsDir":"src/database/migrations",
+"entitiesDir": "src/entities"
+}
+}
+
 ## Regras
 
 - Cadastro de usuário:
 
-  [ ] Não é permitido cadastrar mais de um usuário com o mesmo e-mail;
+  [ x ] Não é permitido cadastrar mais de um usuário com o mesmo e-mail;
 
-  [ ] Não é permitido cadastrar um usuário sem e-mail;
+  [ x ] Não é permitido cadastrar um usuário sem e-mail;
 
 - Cadastro de TAG:
 
@@ -52,18 +83,30 @@ node src/server.js
 
   [ ] Para cadastrar um elogio, o usuário precisa estar cadastrado na aplicação;
 
-## Estrutura
+## Fluxo API
 
-- server (request) => controller => service => server (response)
+- server => routes(request) => controller => service => server => routes(response)
 
-### Entities
+### Migrations:
 
- - Modelagem de dados
+- Criação e versionamento de tabelas
 
-### Controller: 
+### Entities:
 
-- Responsável por pegar os dados da requisição e enviar para o service.
+- Modelo de uma tabela do banco de dados
+
+### Repositorys:
+
+- Classe responsável por se comunicar com o banco. Intermedia a conexão com o banco de dados e executa as querys.
 
 ### Service:
 
 - Executar todas as operações e verificações necessárias para a requisição
+
+### Controller:
+
+- Responsável por pegar os dados da requisição e enviar para o service.
+
+### Middleware:
+
+- função que intercepta requisições
