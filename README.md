@@ -1,4 +1,4 @@
-<h1 style="text-align: center"> Valoriza <small style="font-size: 12px">read.me em construção🚧 </small></h1>
+<h1 style="text-align: center"> Valoriza </h1>
 
 Sistema back-end que estimula o reconhecimento entre companheiros de equipe através de elogios. Incrível, não ?! 😃<svg width="56" height="36" viewBox="15 -50 70 80" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3.5 33.5956L0 14.0956H15V33.5956H3.5Z" fill="black"/>
@@ -13,7 +13,7 @@ Sistema back-end que estimula o reconhecimento entre companheiros de equipe atra
 3. [Árvore de diretórios](#árvore-de-diretórios)
 4. [Alguns comandos pela Cli typeorm](#alguns-comandos-pela-cli-typeorm)
 5. [Um pouco sobre termos utilizados](#Keywords)
-6. [Licença](#-licena)
+6. [Licença](#licença)
 
 ## Ferramentas e Tecnologias utilizadas:
 
@@ -51,13 +51,13 @@ Sistema back-end que estimula o reconhecimento entre companheiros de equipe atra
 
 ## Passo a passo 🚀👩‍💻:
 
-1. Iniciar um projeto com o comando: **`yarn init -y`**
+**1.** Iniciar um projeto com o comando: **`yarn init -y`**
 
-2. Adicionar o TypeScript nas dependências com o comando: **`yarn add typescript -D`**
+**2.** Adicionar o TypeScript nas dependências com o comando: **`yarn add typescript -D`**
 
-3. Inicializar o TypeScript com o comando: **`yarn tsc --init`**
+**3.** Inicializar o TypeScript com o comando: **`yarn tsc --init`**
 
-4. Configurar o arquivo **ts.config**, conforme abaixo:
+**4.** Configurar o arquivo **ts.config**, conforme abaixo:
 
 ```Json
 "strict": false,
@@ -75,26 +75,26 @@ Sistema back-end que estimula o reconhecimento entre companheiros de equipe atra
 "forceConsistentCasingInFileNames": true
 ```
 
-5. Adicionar o **Express** nas dependências com o comando: **`yarn add express`**
+**5.** Adicionar o **Express** nas dependências com o comando: **`yarn add express`**
 
-6. Adicionar a biblioteca de tipagens de express nas dependências de desenvolvimento. No caso, para utilização do express: **`yarn add @types/express -D`**
+**6.** Adicionar a biblioteca de tipagens de express nas dependências de desenvolvimento. No caso, para utilização do express: **`yarn add @types/express -D`**
 
 O código TypeScript precisa ser convertido para JavaScript para que o **Node** consiga interpreta-lo, para isso podemos seguir o passo 6 ou 8.
 
-7. Converter de TypeScript para JavaScript com o comando: **`yarn tsc`**.
+**7.** Converter de TypeScript para JavaScript com o comando: **`yarn tsc`**.
 
 Este comando irá converter o arquivo de TypeScript para JavaScript, e a partir deste novo arquivo .JS poderá ser interpretado pelo node com o comando do passo 7.
 
-8. Inicializar o arquivo com "node caminhoDoArquivo", exemplo:
+**8.** Inicializar o arquivo com "node caminhoDoArquivo", exemplo:
    **`node src/server.js`**
 
-9. Para automatizar o processo anterior, pode ser instalada a biblioteca 'ts-node-dev' através do comando: **`yarn add ts-node-dev`**
+**9.** Para automatizar o processo anterior, pode ser instalada a biblioteca 'ts-node-dev' através do comando: **`yarn add ts-node-dev`**
 
-10. No arquivo package.json, adicione um script denominado **"start": "ts-node-dev caminhoDoArquivo"**. No meu caso o script fica da seguinte forma: **`start": "ts-node-dev src/server.ts`**
+**10.** No arquivo package.json, adicione um script denominado **"start": "ts-node-dev caminhoDoArquivo"**. No meu caso o script fica da seguinte forma: **`start": "ts-node-dev src/server.ts`**
 
-11. No terminal, execute o comando **`yarn start`** . Daí o servidor será iniciado e será reiniciado automaticamente após uma alteração nos arquivos .ts
+**11.** No terminal, execute o comando **`yarn start`** . Daí o servidor será iniciado e será reiniciado automaticamente após uma alteração nos arquivos .ts
 
-12. Instalar o ORM desejado e as dependências necessária para conexão/manipulação do banco de dados. Para este projeto, foi o utilizado o [typeorm](https://typeorm.io). Comandos para instalação:
+**12.** Instalar o ORM desejado e as dependências necessária para conexão/manipulação do banco de dados. Para este projeto, foi o utilizado o [typeorm](https://typeorm.io). Comandos para instalação:
 
 - ` yarn add typeorm` - ORM
 - ` yarn add reflect-metadata` - Biblioteca para utilização de decorators.
@@ -102,21 +102,22 @@ Este comando irá converter o arquivo de TypeScript para JavaScript, e a partir 
 
 Também pode ser instalado em um único comando, da seguinte forma:` yarn add typeorm reflect-metadata sqlite3`
 
-13. Criar na raiz do projeto, um arquivo de configuração do banco de dados, denominado **"ormconfig.json"**, com objeto abaixo:
+**13.** Criar na raiz do projeto, um arquivo de configuração do banco de dados, denominado **"ormconfig.json"**, com objeto abaixo:
 
 ```Json
 {
 "type": "sqlite",
 "database":"src/database/database.sqlite", 
-"migrations":["src/database/migrations/*.ts"],//Executar todos os arquivos ".ts" dentro desse diretório. 
-"entities":["src/entities/*.ts"],//Executar todos os arquivos ".ts" dentro desse diretório.
+"migrations":["src/database/migrations/*.ts"],
+"entities":["src/entities/*.ts"],
 "cli":{
-"migrationsDir":"src/database/migrations", //ao criar migration pelo terminal,será consultado essa configuração, para que seja salvo nesse diretório.
-"entitiesDir": "src/entities" //ao criar entities pelo terminal,será consultado essa configuração, para que seja salvo nesse diretório.
+"migrationsDir":"src/database/migrations", 
+"entitiesDir": "src/entities" 
 }
 ```
+Este arquivo define onde a Cli buscará as migrations e entidades a serem executadas, onde criar as migrations e entidades. 
 
-14. No diretório database, crie um arquivo index.ts para iniciar a conexão com o bando de dados,da seguinte forma:
+**14.** No diretório database, crie um arquivo index.ts para iniciar a conexão com o bando de dados,da seguinte forma:
 
 ```typescript
 import { createConnection } from 'typeorm';
@@ -136,14 +137,14 @@ Após, importe o database no arquivo principal do servidor, no meu caso **"serve
 import './database'
 ```
 
-15. Criar no package.json o script para executar comandos pela Cli do typeorm:
+**15.** Criar no package.json o script para executar comandos pela Cli do typeorm:
 ```Json
  {
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   }
 ```
 
-16. Criar a tabela no banco de dados pela migration, exemplo:
+**16.** Criar a tabela no banco de dados pela migration, exemplo:
 
 ```typescript
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
@@ -183,7 +184,7 @@ export class CreateTags1624500232566 implements MigrationInterface {
   }
 }
 ```
-17. Criar uma entidade para modelar a referida tabela, exemplo:
+**17.** Criar uma entidade para modelar a referida tabela, exemplo:
 
 ```typescript
 import { Entity,PrimaryColumn,Column,CreateDateColumn,UpdateDateColumn
@@ -218,7 +219,7 @@ export class Tag {
   }
 }
 ```
-18. Criar um repositório para estender a classe _Repository_ do typeorm:
+**18.** Criar um repositório para estender a classe _Repository_ do typeorm:
 
 ```typescript
 import { EntityRepository, Repository } from "typeorm";
@@ -227,7 +228,7 @@ import { Tag } from "../entities/Tag";
 @EntityRepository(Tag)
 export class TagsRepositories extends Repository<Tag>{}
 ```
-19. Criar um serviço para executar verificações e consultas no banco de dados,exemplo:
+**19.** Criar um serviço para executar verificações e consultas no banco de dados,exemplo:
 ```typescript
 import { getCustomRepository } from 'typeorm';
 import { TagsRepositories } from '../repositories/TagsRepositories';
@@ -255,7 +256,7 @@ export class CreateTagService {
 ```
 Ao importar o repositório da entidade, temos acesso aos métodos do Repository do typeorm,como no exemplo acima ```tagsRepositories.create()```, ```tagsRepositories.findOne()```,```tagsRepositories.create()```.Além de vários outros métodos que podem ser consultados em : [typeorm.io/repository-api](https://typeorm.io/#/repository-api)
 
-20. Criar um controller para receber os dados da requisição e utilizar o serviço, conforme o exemplo abaixo:
+**20.** Criar um controller para receber os dados da requisição e utilizar o serviço, conforme o exemplo abaixo:
 
 ```typescript
 import { Request, Response } from 'express';
@@ -275,7 +276,7 @@ export class CreateTagController {
 ```
 **Note** que o controller apenas recebe os dados pelo ```request.body```, daí executa o método ```.execute()``` do serviço criado no item **19**.
 
-21. Criar as rotas e delegar a ela o serviço adequado, exemplo:
+**21.** Criar as rotas e delegar a ela o serviço adequado, exemplo:
 ```typescript
 router.post(
   '/tags/create',
@@ -292,31 +293,31 @@ E é basicamente isso. Literalmente o básico, mas acredito que pode ser de ajud
 
 ### Keywords:
 
-#### Migrations:
+* #### Migrations:
 
 Criação e versionamento de tabelas
 
-#### Entities:
+* #### Entities:
 
 Modelo de uma tabela do banco de dados
 
 Veja uma explicação completa em: [typeorm.io/#/entities](https://typeorm.io/#/entities)
 
-#### Repositories:
+* #### Repositories:
 
 Classe responsável por se comunicar com o banco. Intermedia a conexão com o banco de dados e executa as querys, através da extensão da classe Repository do typeorm.
 
 Veja uma explicação completa em: [typeorm.io/#/custom-repository](https://typeorm.io/#/custom-repository)
 
-#### Controller:
+* #### Controller:
 
 Responsável por receber os dados da requisição e enviar para o service.
 
-#### Service:
+* #### Service:
 
 Responsável por executar todas as operações e verificações para a requisição.
 
-#### Middleware:
+* #### Middleware:
 
 Interceptador de requisições e realiza os tratamentos necessários, como por exemplo: Autenticação de usuário.
 
@@ -341,8 +342,9 @@ Inserção de dados.
     └── /controllers
     └── /database
     |    └── /migrations
+    |    └── index
     └── /entities
-    └── / middlewares
+    └── /middlewares
     └── /repositories
     └── /services
     └── routes
@@ -353,10 +355,20 @@ Inserção de dados.
  ```
  yarn typeorm migration:create -n nomeDaMigration
  ```
+ * Executar migrations: 
+ ```
+ yarn typeorm migration:run
+ ```
+ *Desfazer a última migration:
+ ```
+ yarn typeorm migration:revert
+ ```
  * Criar entidades:
  ```
 yarn typeorm entity:create -n nomeDaEntidade
  ```
+ Outros comandos podem ser consultados no terminal da seguinte forma: ```yarn typeorm -help```
+ 
 
 ### 📄Licença
 
