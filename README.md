@@ -8,9 +8,9 @@ Sistema back-end que estimula o reconhecimento entre companheiros de equipe atra
 
 ## Sumário - _a ser atualizado_
 
-[Árvore de diretórios](#Árvore-de-diretórios:)
+[Árvore de diretórios](#árvore-de-diretórios)
 
-[Como construir esta aplicação ?](#Passo-a-passo-🚀👩‍💻:)
+[Como construir esta aplicação ?](#passo-a-passo-)
 
 [Um pouco sobre termos utilizados](#Keywords)
 
