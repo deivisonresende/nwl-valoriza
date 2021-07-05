@@ -125,7 +125,17 @@ Também pode ser instalado em um único comando, da seguinte forma:` yarn add ty
 "entitiesDir": "src/entities" 
 }
 ```
-_Este arquivo define onde a Cli buscará as migrations e entidades a serem executadas, onde criar as migrations e entidades._
+* _Este arquivo define as configurações de conexão com o banco de dados e instrução para a cli buscar as migrations e entidades a serem executadas, ou criar as migrations e entidades._
+* _Para utilização de outros drivers como postgres, mysql, mongo, etc., se faz necessário informar outros dados, como:_
+```Json
+{
+    "host": "localhost",
+    "port": 3306,
+    "username": "test",
+    "password": "test",
+    "database": "test"
+}
+```
 
 **14.** No diretório database, crie um arquivo index.ts para iniciar a conexão com o bando de dados,da seguinte forma:
 
@@ -142,7 +152,7 @@ connection
     console.log('Não foi possível conectar à base de dados:', err);
   });
 ```
-Após, importe o database no arquivo principal do servidor, no meu caso **```"server.ts"```**:
+_Após, importe o database no arquivo principal do servidor, no meu caso **```"server.ts"```**:_
 ```typescript
 import './database'
 ```
@@ -198,7 +208,8 @@ export class CreateTags1624500232566 implements MigrationInterface {
   }
 }
 ```
-**17.** Criar uma entidade para modelar a tabela, exemplo da entidade **Tag**, da tabela _tags_:
+**17.** Criar uma entidade para modelar a tabela, exemplo:
+Entidade **Tag**, da tabela _tags_
 
 ```typescript
 import { Entity,PrimaryColumn,Column,CreateDateColumn,UpdateDateColumn
@@ -242,7 +253,7 @@ import { Tag } from "../entities/Tag";
 @EntityRepository(Tag)
 export class TagsRepositories extends Repository<Tag>{}
 ```
-**19.** Criar um serviço para executar verificações e consultas no banco de dados,exemplo:
+**19.** Criar um serviço para executar verificações e consultas no banco de dados, exemplo:
 ```typescript
 import { getCustomRepository } from 'typeorm';
 import { TagsRepositories } from '../repositories/TagsRepositories';
